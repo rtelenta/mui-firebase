@@ -3,11 +3,14 @@ import ReactDOM from "react-dom";
 import RootApp from "./routes";
 import * as serviceWorker from "./serviceWorker";
 import CssBaseline from "@material-ui/core/CssBaseline";
+import { UserProvider } from "state/user/context";
 
 ReactDOM.render(
   <React.StrictMode>
-    <CssBaseline />
-    <RootApp />
+    <UserProvider>
+      <CssBaseline />
+      <RootApp />
+    </UserProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

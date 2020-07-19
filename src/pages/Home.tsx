@@ -16,9 +16,6 @@ import {
   DialogContent,
   Link,
   Divider,
-  TextField,
-  FormControlLabel,
-  Checkbox,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import HomeVideo from "assets/home-video.mp4";
@@ -38,13 +35,13 @@ import CustomerImg from "assets/customer.jpg";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import IconButton from "@material-ui/core/IconButton";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Team1Img from "assets/team-1.jpg";
 import Team2Img from "assets/team-2.jpg";
 import Team3Img from "assets/team-3.jpg";
 import Team4Img from "assets/team-4.jpg";
 import Team5Img from "assets/team-5.jpg";
 import Team6Img from "assets/team-6.jpg";
+import LoginForm from "components/LoginForm";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -114,24 +111,6 @@ const useStyles = makeStyles((theme) => ({
     top: theme.spacing(1),
     color: theme.palette.grey[500],
   },
-  paper: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    paddingBottom: theme.spacing(4),
-    paddingLeft: theme.spacing(2),
-    paddingRight: theme.spacing(2),
-  },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
-  },
-  form: {
-    width: "100%",
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
 }));
 
 function Home() {
@@ -195,63 +174,7 @@ function Home() {
             </IconButton>
           </DialogTitle>
           <DialogContent>
-            <div className={classes.paper}>
-              <Avatar className={classes.avatar}>
-                <LockOutlinedIcon />
-              </Avatar>
-              <Typography component="h1" variant="h5">
-                Ingresar
-              </Typography>
-              <form className={classes.form} noValidate>
-                <TextField
-                  variant="outlined"
-                  margin="normal"
-                  required
-                  fullWidth
-                  id="email"
-                  label="Email Address"
-                  name="email"
-                  autoComplete="email"
-                  autoFocus
-                />
-                <TextField
-                  variant="outlined"
-                  margin="normal"
-                  required
-                  fullWidth
-                  name="password"
-                  label="Password"
-                  type="password"
-                  id="password"
-                  autoComplete="current-password"
-                />
-                <FormControlLabel
-                  control={<Checkbox value="remember" color="primary" />}
-                  label="Recordarme"
-                />
-                <Button
-                  type="submit"
-                  fullWidth
-                  variant="contained"
-                  color="primary"
-                  className={classes.submit}
-                >
-                  Ingresar
-                </Button>
-                <Grid container>
-                  <Grid item xs>
-                    <Link href="#" variant="body2">
-                      ¿Olvidaste tu contraseña?
-                    </Link>
-                  </Grid>
-                  <Grid item>
-                    <Link href="#" variant="body2">
-                      {"¿No tienes una cuenta? Registrate Ahora"}
-                    </Link>
-                  </Grid>
-                </Grid>
-              </form>
-            </div>
+            <LoginForm />
           </DialogContent>
         </Dialog>
       </Box>
